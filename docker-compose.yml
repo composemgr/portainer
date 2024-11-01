@@ -1,0 +1,13 @@
+services:
+  portainer:
+    image: 'portainer/portainer-ce:latest'
+    container_name: portainer-portainer-ce-latest
+    restart: always
+    pull_policy: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/lib/srv/$USER/docker/portainer/portainer/latest/rootfs/data:/data"
+      - "/var/lib/srv/$USER/docker/portainer/portainer/latest/rootfs/config:/config"
+    ports:
+      - '172.17.0.1:50031:9000'
+      - '172.17.0.1:50030:8000'
